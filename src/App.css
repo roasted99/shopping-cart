@@ -62,6 +62,7 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-left: 20em;
+  margin-top: 2em;
 }
 
 .cart--img {
@@ -74,6 +75,7 @@ body {
   padding: .5rem;
 }
 
+/* Card */
 .card--list {
   display: flex;
   gap: 2em;
@@ -107,6 +109,36 @@ body {
   height: 1rem;
 }
 
+/* Item Details */
+.item--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail--image {
+  width: 30%;
+}
+
+.detail--star {
+  width: 3rem;
+}
+
+.item--description {
+  width: 50%;
+  text-align: center;
+}
+
+.add-to-cart {
+  border: none;
+  padding: 1rem;
+  background-color: rgb(241, 218, 113);
+  font-size: 1.3rem;
+  margin-top: 2em;
+  border-radius: 5px;
+  margin-bottom: 5em;
+}
+/* Contact Us */
 .contact {
   margin-top: 10em;
   display: flex;
@@ -115,6 +147,7 @@ body {
   gap: 10em;
 }
 
+/* Check Out */
 table, th, td {
   border: 1px solid black;
   /* max-height: 20em; */
@@ -124,3 +157,4 @@ th {
   background-color: white;
   height: 100px;
 }
+

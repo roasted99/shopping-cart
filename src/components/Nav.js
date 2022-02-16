@@ -5,7 +5,11 @@ const Nav = () => {
 
     const navStyles = {
         color: 'black',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        ':hover': {
+            backgroundColor: 'green',
+            textDecoration: 'underline'
+        }
     };
 
     return (

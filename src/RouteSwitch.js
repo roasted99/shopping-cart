@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
 import About from "./components/About"
 import Nav from "./components/Nav";
 import Shop from "./components/Shop"
@@ -7,18 +6,25 @@ import Contact from "./components/Contact"
 
 import './App.css'
 import CheckOut from "./components/CheckOut";
+import ItemDetail from "./components/ItemDetail";
 
 const RouteSwitch = () => {
+
   return (
-    <BrowserRouter>
+    <div>
+      <Nav />
+    
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/" element={<About />} />
+        <Route path="/shop" exact element={<Shop />} />
+         <Route path="/shop/:id" element={<ItemDetail />} />
+         <Route path="/shop/checkout" element={<CheckOut />} />
+        
         <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<CheckOut />} />
 
       </Routes>
-    </BrowserRouter>
+    
+    </div>
   );
 };
 
