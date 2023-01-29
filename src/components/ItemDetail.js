@@ -1,6 +1,5 @@
 import star from "../images/star.png"
 import shoppingCart from "../images/shop-cart.png"
-import Nav from "./Nav"
 import CheckOut from "./CheckOut"
 import { useParams, Link } from "react-router-dom"
 import { useState,useEffect } from "react"
@@ -44,7 +43,7 @@ const ItemDetail = () => {
 
     const subTotal = parseFloat(item.price * quantity)
 
-  const plusAll = () => {
+    const plusAll = () => {
         let total = 0;
         for(let i = 0; i < subTotal.length; i++){
             return total += subTotal[i]
@@ -59,11 +58,11 @@ const ItemDetail = () => {
                 <span className="counter">{cart}</span>
             </div>
                <h1 className="detail--title">{item.title}</h1>
-               <img src={item.image} alt="Item Image" className="detail--image"/>
+               <img src={item.image} alt={item.title} className="detail--img"/>
                <div>
                    <img src={star} alt="Star Icon" className="detail--star"/>
-                    {/* <span>{item.rating.rate}</span> */}
-                    {/* <span>( {item.rating.count})</span> */}
+                    <span>{item.rating.rate}</span>
+                    <span>( {item.rating.count})</span>
                </div>
                <p>$ {item.price}</p>
                <h3>Description:</h3>

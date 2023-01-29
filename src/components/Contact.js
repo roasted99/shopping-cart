@@ -1,5 +1,4 @@
 import logo from "../images/logo.png"
-import Nav from "./Nav"
 
 const Contact = () => {
     return (

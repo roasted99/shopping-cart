@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -59,20 +61,24 @@ body {
 }
 
 .checkOut {
+  border: 1px solid black;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
   display: flex;
-  justify-content: flex-end;
-  margin-left: 20em;
-  margin-top: 2em;
+  justify-content: space-around;
+  margin-left: auto;
+  background-color: #6ca0d4;
+  margin-right: 50px;
+  cursor: pointer;
 }
 
 .cart--img {
-  height: 2rem;
+  height: 18px;
 }
 
 .counter {
-  background-color: red;
-  border-radius: 50%;
-  padding: .5rem;
+  
 }
 
 /* Card */
@@ -86,23 +92,32 @@ body {
 
 .card {
   width: 20em;
-  border: 1px solid black;
+  height: 30em;
+ 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   position: relative;
   flex: 0 0 auto;
   border-radius: 10px;
-  padding: 1rem;
   background-color: white;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 10px 5px 5px #000 ;
+  border: 1px solid black;
 }
 
 .item--title {
   text-align: center;
 }
-.item--image {
-  width: 50%;
-  height: auto;
+
+.card--img {
+  width: 200px;
+  height: 350px;
+  object-fit: contain;
 }
 
 .card--star {
@@ -116,7 +131,7 @@ body {
   align-items: center;
 }
 
-.detail--image {
+.detail--img {
   width: 30%;
 }
 
@@ -138,6 +153,39 @@ body {
   border-radius: 5px;
   margin-bottom: 5em;
 }
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, .5); */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  width: 60%;
+  height: auto;
+  background: rgba(255, 255, 255);
+  /* color: --color; */
+  padding: 1rem;
+  border: 7px solid black;
+}
+
+.windowClose {
+  float: right;
+  cursor: pointer;
+}
+
 /* Contact Us */
 .contact {
   margin-top: 10em;

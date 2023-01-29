@@ -3,8 +3,8 @@ import star from "../images/star.png"
 const Card = (props) => {
 
     return (
-        <div className="card">
-            <img src={props.img} alt="item--image" />
+        <div className="card" key={props.id}>
+            <img src={props.img} alt={props.title} className="card--img" />
             <h3 className="item--title">{props.title}</h3>
             <div className="item--status">
                 <img src={star} alt="Star Icon" className="card--star" />
