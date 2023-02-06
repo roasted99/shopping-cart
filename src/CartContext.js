@@ -1,26 +1,39 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext({
     items: [],
     getItemQuantity: () => {},
-    addToCart: () => {},
+    addOneToCart: () => {},
     removeFromCart: () => {},
     deleteFromCart: () => {},
     getTotalCost: () => {}
-})
+});
 
 export function CartProvider({children}) {
     const [cartItems, setCartItems] = useState([]);
 
-    const getItemData = async() => {
+    const itemArray = async() => {
         const data = await fetch(`https://fakestoreapi.com/products`);
-        const item = await data.json();
-        return item;
+        const items = await data.json();
+        return items;
+    }
+
+    useEffect(() => {
+        itemArray()
+    }, []);
+
+    function getItemData(id) {
+        let itemData = itemArray.find(item => item.id === id);
+
+        if (itemData == undefined) {
+            console.log("Item data does not exist for ID:" + id);
+            return undefined;
+        }
+        return itemData;
     }
 
     function getItemQuantity(id) {
-
-        const quantity = cartItems.find(item => item.id === id)?.quantity 
+        const quantity = cartItems.find(item => item.id === id)?.quantity;
 
         if (quantity === undefined) {
             return 0;
@@ -29,10 +42,11 @@ export function CartProvider({children}) {
         return quantity;
     }
 
-    function addToCart(id) {
+    function addOneToCart(id) {
+        console.log('in context')
         const quantity = getItemQuantity(id);
 
-        if (quantity === 0) {
+        if (quantity === 0) {      
             setCartItems(
                 [
                     ...cartItems,
@@ -83,17 +97,18 @@ export function CartProvider({children}) {
     const contextValue = {
         items: cartItems,
         getItemQuantity,
-        addToCart,
+        addOneToCart,
         removeFromCart,
         deleteFromCart,
         getTotalCost
     }
-    return (
 
+
+    return (
         <CartContext.Provider value={contextValue}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export default CartProvider
+export default CartProvider;

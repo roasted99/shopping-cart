@@ -4,6 +4,7 @@ import About from "./components/About"
 import Nav from './components/Nav';
 import CartProvider from './CartContext';
 
+
 const App = () => {
   return (
     <CartProvider>

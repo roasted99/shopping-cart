@@ -1,4 +1,6 @@
 import logo from '../images/logo.png'
+import CheckoutCart from './CheckoutCart';
+import { CartContext } from "../CartContext"
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
@@ -25,6 +27,9 @@ const Nav = () => {
                 <Link to="/contact"style={navStyles}>
                 <li>Contact</li>
                 </Link>
+                <li className="checkOut" >
+                <CheckoutCart />
+                 </li>
             </ul>
         </nav>
     )

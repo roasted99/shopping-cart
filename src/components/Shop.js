@@ -2,23 +2,13 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Card from "./Card"
 import CheckoutCart from "./CheckoutCart"
+import useFetch from "../ItemData"
+
 
 const Shop = () => {
-    
-    const [items, setItems] = useState([])
-    // const [showModal, setShowModal] = useState(false)
-
-    const fetchItems = async () => {
-        const data = await fetch('https://fakestoreapi.com/products');
-        const items = await data.json();
-        setItems(items)
-    }
-    console.log(items)
-
-    useEffect(() => {
-        fetchItems()
-    }, []);
-
+   
+const [items] = useFetch('https://fakestoreapi.com/products')
+   
 
     const cards = items.map(item => {
         return (
