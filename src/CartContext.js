@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import useFetch from "./ItemData";
 
 export const CartContext = createContext({
     items: [],
@@ -12,16 +13,7 @@ export const CartContext = createContext({
 export function CartProvider({children}) {
     const [cartItems, setCartItems] = useState([]);
 
-    const itemArray = async() => {
-        const data = await fetch(`https://fakestoreapi.com/products`);
-        const items = await data.json();
-        return items;
-    }
-
-    useEffect(() => {
-        itemArray()
-    }, []);
-
+    const [itemArray] = useFetch('https://fakestoreapi.com/products')
     function getItemData(id) {
         let itemData = itemArray.find(item => item.id === id);
 
@@ -43,7 +35,6 @@ export function CartProvider({children}) {
     }
 
     function addOneToCart(id) {
-        console.log('in context')
         const quantity = getItemQuantity(id);
 
         if (quantity === 0) {      
@@ -59,7 +50,7 @@ export function CartProvider({children}) {
         } else {
             setCartItems(
                 cartItems.map(
-                    item => item.id === id ? {...item, quantity: item.quantity + 1} : item
+                    item => item.id === id ? {  ...item, quantity: item.quantity + 1} : item
                 )
             )
         }
