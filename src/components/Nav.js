@@ -1,30 +1,29 @@
-import logo from '../images/logo.png'
+
 import CheckoutCart from './CheckoutCart';
-import { CartContext } from "../CartContext"
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
 
-    const navStyles = {
-        color: 'black',
-        textDecoration: 'none',
-        ':hover': {
-            backgroundColor: 'green',
-            textDecoration: 'underline'
-        }
-    };
+    // const navStyles = {
+    //     color: 'black',
+    //     textDecoration: 'none',
+    //     ':hover': {
+    //         backgroundColor: 'green',
+    //         textDecoration: 'underline'
+    //     }
+    // };
 
     return (
         <nav className="nav--bar">
-            <img src={logo} alt="logo" className='nav--logo'/>
+            <h1>dora</h1>
             <ul className="nav--links">
-                <Link to="/" style={navStyles}>
+                <Link to="/" >
                 <li>About</li>
                 </Link>
-                <Link to="/shop" style={navStyles }>
+                <Link to="/shop" >
                 <li>Shop</li>
                 </Link>
-                <Link to="/contact"style={navStyles}>
+                <Link to="/contact">
                 <li>Contact</li>
                 </Link>
                 <li className="checkOut" >

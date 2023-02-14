@@ -1,14 +1,18 @@
-import clothing from '../images/clothing-store.jpg'
+import Nav from "./Nav"
+import { useNavigate } from "react-router-dom"
 
 const About = () => {
+    const navigate = useNavigate()
     return (
-        <div className="about-us">
-            <h1>About Us</h1>
-            <img src={clothing} alt="Clothes in Store" className="store-img"/>
-            <p className='description'> Style is more than the clothes we wear, it's how we carry ourselves. 
-                Our style reveals what is distinct and unique about us.At our Wonderland Boutique
-                we value uniqueness in every of our product which are all made with organic.</p>
+        <div className="bg">
+            <Nav />
+            <div className="about-us">
+                <h1>Start the season with 
+                    <h2 className="linear-wipe"> dora</h2></h1>
+                    <button onClick={() => navigate('/shop')} className="shop">Shop now</button>
+             </div>
         </div>
+        
     )
 }
 
