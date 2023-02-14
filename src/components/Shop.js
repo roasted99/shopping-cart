@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Card from "./Card"
 import Nav from "./Nav"
-import CheckoutCart from "./CheckoutCart"
 import useFetch from "../ItemData"
 
 

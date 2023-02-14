@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import useFetch from "./ItemData";
 
 export const CartContext = createContext({
@@ -17,7 +17,7 @@ export function CartProvider({children}) {
     function getItemData(id) {
         let itemData = itemArray.find(item => item.id === id);
 
-        if (itemData == undefined) {
+        if (itemData === undefined) {
             console.log("Item data does not exist for ID:" + id);
             return undefined;
         }
@@ -78,10 +78,11 @@ export function CartProvider({children}) {
 
     function getTotalCost() {
         let totalCost = 0;
-        cartItems.map((cartItem) => {
+        cartItems.map(cartItem => {
             const itemInfo = getItemData(cartItem.id);
             totalCost += (itemInfo.price * cartItem.quantity);
         });
+
         return totalCost
     }
 
