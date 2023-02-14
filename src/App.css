@@ -97,12 +97,21 @@
 }
 
 /* Card */
+
+.page--title {
+  text-align: center;
+}
+
 .card--list {
   display: flex;
   gap: 2em;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 2em;
+}
+
+.card--list a {
+  text-decoration: none;
 }
 
 .card {
@@ -115,14 +124,14 @@
   align-items: center;
   position: relative;
   flex: 0 0 auto;
-  border-radius: 10px;
   background-color: white;
   overflow: hidden;
+  
 }
 
 .card:hover {
-  box-shadow: 10px 5px 5px #000 ;
-  border: 1px solid black;
+  
+  border: 5px solid var(--background-color);
 }
 
 .item--title {
@@ -143,15 +152,16 @@
 .item--detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  
+  padding: 1em;
 }
 
 .detail--img {
   width: 50%;
+  justify-self: center;
 }
 
 .detail--star {
-  width: 3rem;
+  width: 1rem;
 }
 
 .item--info {

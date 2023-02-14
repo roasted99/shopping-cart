@@ -1,11 +1,10 @@
 import star from "../images/star.png"
-import shoppingCart from "../images/shop-cart.png"
-import CheckOut from "./CheckOut"
 import { CartContext } from "../CartContext"
 import { useContext } from "react"
-import { useParams, Link } from "react-router-dom"
-import { useState,useEffect } from "react"
+import { useParams} from "react-router-dom"
+
 import useFetch from "../ItemData"
+import Nav from "./Nav"
 
 const ItemDetail = () => {
 
@@ -13,39 +12,14 @@ const ItemDetail = () => {
     const params = useParams()
     const [item] = useFetch(`https://fakestoreapi.com/products/${params.id}`)
 
-    // const useFetch = (url) => {
-    //     const [items, setItems] = useState([]);
-    
-    //     const fetchItems = async () => {
-    //         const data = await fetch(url);
-    //         const items = await data.json();
-    //         setItems(items)
-    //     }
-        
-    //     useEffect(() => {
-    //         fetchItems()
-    //     }, [url]);
-    
-    //     return [items];
-    // }
-
-    // function getItemData(id) {
-    //     const item = items.find(item => item.id === id)
-
-    //     if (id === undefined) {
-    //         console.log("undefined id")
-    //     }
-    //     return item
-    // }
-
-    // const item = getItemData(params.id)
-    // console.log(item)
+   
     const cart = useContext(CartContext);
     const itemQuantity = cart.getItemQuantity(item.id);
     console.log(cart.items)
 
     return (
-        
+        <>
+        <Nav />
            <div className="item--detail">
            
                <img src={item.image} alt={item.title} className="detail--img"/>
@@ -57,8 +31,9 @@ const ItemDetail = () => {
                     <span>{item.rating.rate}</span>
                     <span>( {item.rating.count})</span>
                </div> */}
-               <p>$ {item.price}</p>
+               <h2>$ {item.price}</h2>
                <p className="item--description">{item.description}</p>
+               <br />
                { itemQuantity > 0 ?
                 <>
                 <div>
@@ -76,7 +51,7 @@ const ItemDetail = () => {
                
             </div>
            </div>
-        
+           </>
     )
 }
 

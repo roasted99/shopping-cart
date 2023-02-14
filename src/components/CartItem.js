@@ -13,7 +13,7 @@ function CartItem(props) {
       <td data-label="Item Image">
         <img className="cart-img" src={item.image} alt={item.description} />
       </td>
-      <td data-label="Description">{item.description}</td>
+      <td data-label="Description">{item.title}</td>
       <td data-label="Quantity">
         <div>
           <button className="quantity" onClick={() => cart.addOneToCart(item.id)}>+</button>

@@ -3,7 +3,7 @@ import star from "../images/star.png"
 const Card = (props) => {
 
     return (
-        <div className="card" key={props.id}>
+        <div className="card" id={props.id}>
             <img src={props.img} alt={props.title} className="card--img" />
             <h3 className="item--title">{props.title}</h3>
             <div className="item--status">
